@@ -1,4 +1,4 @@
-package br.com.tuma.jdbc;
+package br.com.turma.jdbc;
 
 import java.sql.DriverManager;
 import java.sql.Connection;
