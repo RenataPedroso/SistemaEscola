@@ -70,4 +70,36 @@ public class AlunoDao {
 		return alunos;
 	}
 	
+	public Aluno mostrarPorCodigo(int codigo) {
+		
+		Connection con = Conexao.obterConexao();
+		Aluno aluno = null;
+		
+		String sql = "SELECT * FROM aluno WHERE codigo=?";
+		
+		try {
+			PreparedStatement preparador = con.prepareStatement(sql);
+			preparador.setInt(1, codigo);
+			ResultSet resultado = preparador.executeQuery();
+			
+			if (resultado.next()) {
+				aluno = new Aluno();
+				aluno.setCodigo(resultado.getInt("codigo"));
+				aluno.setNome(resultado.getString("nome"));
+				aluno.setPrim(resultado.getDouble("prim"));
+				aluno.setSeg(resultado.getDouble("seg"));
+				aluno.setTer(resultado.getDouble("ter"));
+				aluno.setQua(resultado.getDouble("qua"));
+				aluno.setMedia(resultado.getDouble("media"));
+				aluno.setStatusFinal(resultado.getString("status_final"));
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return aluno;
+		
+	}
+	
 }

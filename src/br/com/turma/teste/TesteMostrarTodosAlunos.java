@@ -15,6 +15,7 @@ public class TesteMostrarTodosAlunos {
 		for (int i=0; i<alunosDoBanco.size(); i++) {
 			Aluno aluno = alunosDoBanco.get(i);
 			
+			System.out.println();
 			System.out.println("Código: " + aluno.getCodigo());
 			System.out.println("Nome: " + aluno.getNome());
 			System.out.printf("1º Bimestre: %.1f - 2º Bimestre: %.1f - 3º Bimestre: %.1f - 4º Bimestre: %.1f\n", aluno.getPrim(),aluno.getSeg(),aluno.getTer(),aluno.getQua());
@@ -23,7 +24,7 @@ public class TesteMostrarTodosAlunos {
 			System.out.println();
 		
 		}
-		
+
 	}
 
 }
