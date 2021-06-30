@@ -102,4 +102,54 @@ public class AlunoDao {
 		
 	}
 	
+	public void excluirPorCodigo(int codigo) {
+		
+		Connection con = Conexao.obterConexao();
+		String sql = "DELETE FROM aluno WHERE codigo=?";
+		
+		try {
+			
+			PreparedStatement preparador = con.prepareStatement(sql);
+			preparador.setInt(1, codigo);
+			
+			preparador.execute();
+			preparador.close();
+			
+			System.out.println("Aluno Excluido com sucesso!");
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void alterarPorCodigo(Aluno aluno) {
+		
+		Connection con = Conexao.obterConexao();
+		String sql = "UPDATE aluno SET nome=?, prim=?, seg=?, ter=?, qua=?, media=?, status_final=? WHERE codigo=?";
+		
+		try {
+			
+			PreparedStatement preparador = con.prepareStatement(sql);
+			preparador.setString(1, aluno.getNome());
+			preparador.setDouble(2, aluno.getPrim());
+			preparador.setDouble(3, aluno.getSeg());
+			preparador.setDouble(4, aluno.getTer());
+			preparador.setDouble(5, aluno.getQua());
+			preparador.setDouble(6, aluno.getMedia());
+			preparador.setString(7, aluno.getStatusFinal());
+			preparador.setDouble(8, aluno.getCodigo());
+			
+			System.out.println("Aluno alterado com sucesso!");
+			
+			preparador.execute();
+			preparador.close();
+		
+		} catch (SQLException e){
+			System.err.println("Ops, houve um erro ao alterar o aluno :(");
+			e.printStackTrace();
+		}
+		
+	}
+	
 }
