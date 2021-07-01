@@ -10,9 +10,10 @@ public class Conexao {
 		
 		Connection con = null;
 		try {
+			Class.forName("com.mysql.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://localhost/dbalunos?useSSL=false", "root", "root");
 			System.out.println("Banco de dados conectado com sucesso!!");
-		} catch (SQLException e) {
+		} catch (SQLException | ClassNotFoundException e) {
 			System.err.println("Não foi possível conectar ao banco de dados:(");
 			e.printStackTrace();
 		}
