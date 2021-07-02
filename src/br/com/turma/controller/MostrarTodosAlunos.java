@@ -10,9 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.turma.dao.AlunoDao;
 import br.com.turma.entidade.Aluno;
-
+import br.com.turma.dao.AlunoDao;
 
 @WebServlet("/mostrar")
 public class MostrarTodosAlunos extends HttpServlet {
@@ -25,8 +24,12 @@ public class MostrarTodosAlunos extends HttpServlet {
 		ArrayList<Aluno> alunos = alunoDao.mostrarTodos();
 		
 		request.setAttribute("alunos", alunos);
+		
 		RequestDispatcher rd = request.getRequestDispatcher("/telamostraralunos.jsp");
 		rd.forward(request, response);
 		
 	}
+
+
+
 }
