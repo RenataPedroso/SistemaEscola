@@ -6,19 +6,20 @@ import br.com.turma.entidade.Aluno;
 public class TesteAlterarAluno {
 
 	public static void main(String[] args) {
-
-		Aluno aluno1 = new Aluno();
-		aluno1.setCodigo(2);
-		aluno1.setNome("Yara Franco da Rocha");
-		aluno1.setPrim(5.0);
-		aluno1.setSeg(3.0);
-		aluno1.setTer(2.5);
-		aluno1.setQua(2.0);
-		aluno1.setMedia(aluno1.calcularMedia());
-		aluno1.setStatusFinal(aluno1.verificarStatus());
+		
+		Aluno aluno01 = new Aluno();
+		aluno01.setCodigo(4);
+		aluno01.setNome("Anderson Barros");
+		aluno01.setPrim(10);
+		aluno01.setSeg(10);
+		aluno01.setTer(10);
+		aluno01.setQua(10);
+		aluno01.setMedia(aluno01.calcularMedia());
+		aluno01.setStatusFinal(aluno01.verificarStatus());
 		
 		AlunoDao alunoDao = new AlunoDao();
-		alunoDao.alterarPorCodigo(aluno1);
+		alunoDao.alterarPorCodigo(aluno01);
+
 	}
 
 }

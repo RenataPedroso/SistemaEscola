@@ -1,35 +1,30 @@
 package br.com.turma.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.turma.entidade.Aluno;
 import br.com.turma.dao.AlunoDao;
 
-@WebServlet("/mostrar")
-public class MostrarTodosAlunos extends HttpServlet {
+/**
+ * Servlet implementation class ExcluirAluno
+ */
+@WebServlet("/excluir")
+public class ExcluirAluno extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-
+  
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		int codigo=Integer.parseInt(request.getParameter("codigo"));
+		
 		AlunoDao alunoDao = new AlunoDao();
-		ArrayList<Aluno> alunos = alunoDao.mostrarTodos();
+		alunoDao.excluirPorCodigo(codigo);
 		
-		request.setAttribute("alunos", alunos);
-		
-		RequestDispatcher rd = request.getRequestDispatcher("..../main/webapp/telamostrartodosalunos.jsp");
-		rd.forward(request, response);
-		
+		response.sendRedirect("http://localhost:8080/SistemaEscola/mostrar");
 	}
-
-
 
 }

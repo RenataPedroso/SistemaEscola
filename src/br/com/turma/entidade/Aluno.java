@@ -3,6 +3,7 @@ package br.com.turma.entidade;
 public class Aluno {
 
 	//Construtor da classe
+
 	public Aluno(String nome, double prim, double seg, double ter, double qua) {
 		this.nome = nome;
 		this.prim = prim;
@@ -13,11 +14,22 @@ public class Aluno {
 		this.statusFinal = this.verificarStatus();
 	}
 	
-	
-	public Aluno() {
+	public Aluno(int codigo, String nome, double prim, double seg, double ter, double qua) {
+		this.codigo = codigo;
+		this.nome = nome;
+		this.prim = prim;
+		this.seg = seg;
+		this.ter = ter;
+		this.qua = qua;
+		this.media = this.calcularMedia();
+		this.statusFinal = this.verificarStatus();
 	}
 
-
+	
+	public Aluno() {
+	
+	}
+	
 	//Propriedades e/ou atributos
 	private int codigo;
 	private String nome;

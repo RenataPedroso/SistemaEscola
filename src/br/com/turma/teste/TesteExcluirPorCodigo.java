@@ -7,7 +7,7 @@ public class TesteExcluirPorCodigo {
 	public static void main(String[] args) {
 
 		AlunoDao alunoDao = new AlunoDao();
-		alunoDao.excluirPorCodigo(1);
+		alunoDao.excluirPorCodigo(8);
 		
 	}
 
